@@ -3,12 +3,12 @@ import json
 import time
 import smtplib
 from bs4 import BeautifulSoup
-from pushbullet.pushbullet import PushBullet
+from pushbullet import PushBullet
 
-token = "pushbullet token"
+token = ""
 p = PushBullet(token)
-devices = p.getDevices()
-item = "what to monitor for"
+device = p.devices[0]
+item = ""
 
 while True:
 	url = ""
@@ -21,5 +21,5 @@ while True:
 		continue
 
 	else:
-		p.pushNote(devices[0]["iden"], 'Item found', item)
+		device.push_note("title", "body")
 		break
